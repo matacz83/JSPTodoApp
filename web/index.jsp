@@ -11,6 +11,9 @@
     <title>Login Page</title>
 </head>
 <body>
+<% if (session.getAttribute("user") != null) {
+    response.sendRedirect("todos.jsp");
+}%>
 <form action="login" method="post">
     Login: <input name="login" type="login"><br>
     Password: <input name="password" type="password"><br>

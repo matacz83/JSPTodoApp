@@ -11,6 +11,9 @@
     <title>Your todos</title>
 </head>
 <body>
-<h1>${sessionScope.user.login}, Your todos: </h1>
+<h1>Hello, ${sessionScope.user.login}!</h1>
+<h1>Your todos: </h1>
+<form action="logout">
+    <input type="submit" value="log out">
 </body>
 </html>
