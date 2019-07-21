@@ -1,4 +1,5 @@
-<%--
+<%@ page import="com.jsp.model.Todo" %>
+<%@ page import="java.util.List" %><%--
   Created by IntelliJ IDEA.
   User: matacz
   Date: 21.07.2019
@@ -15,5 +16,21 @@
 <h1>Your todos: </h1>
 <form action="logout">
     <input type="submit" value="log out">
+</form>
+<%
+    List<Todo> todos = (List<Todo>) request.getSession().getAttribute("todos");
+    if (todos != null) {
+        for (Todo todo : todos) {
+%>
+<%= todo.getContent() %>
+<br/>
+<%
+        }
+    }
+%>
+<form action="todos/add" method="post">
+    Todo: <input type="text" name="todoContent">
+    <input type="submit" value="Add">
+</form>
 </body>
 </html>
